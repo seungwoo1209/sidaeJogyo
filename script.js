@@ -81,20 +81,20 @@ document.addEventListener('DOMContentLoaded', function () {
         let mainDescription = "";
         const wordsArray = contentDetail.value.split(','); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
 
+        toiletCheckingStair = `${getArrayValue(wordsArray,0)}-${getArrayValue(wordsArray,1)}`;
+
         if(selectedContentStair == 2 || selectedContentStair == 3){
-            toiletCheckingStair = "2-3";
             mainDescription = 
-            `2층 롤휴지 ${getArrayValue(wordsArray,1)}개, 페이퍼타올 ${getArrayValue(wordsArray,2)}개
+            `2층 롤휴지 ${getArrayValue(wordsArray,2)}개, 페이퍼타올 ${getArrayValue(wordsArray,3)}개
 
-            3층 롤휴지 ${getArrayValue(wordsArray,3)}개, 페이퍼타올 ${getArrayValue(wordsArray,4)}개`;
+            3층 롤휴지 ${getArrayValue(wordsArray,4)}개, 페이퍼타올 ${getArrayValue(wordsArray,5)}개`;
         } else {
-            toiletCheckingStair = "4-6";
             mainDescription = 
-            `4층 롤휴지 ${getArrayValue(wordsArray,1)}개, 페이퍼타올 ${getArrayValue(wordsArray,2)}개
+            `4층 롤휴지 ${getArrayValue(wordsArray,2)}개, 페이퍼타올 ${getArrayValue(wordsArray,3)}개
 
-            5층 롤휴지 ${getArrayValue(wordsArray,3)}개, 페이퍼타올 ${getArrayValue(wordsArray,4)}개
+            5층 롤휴지 ${getArrayValue(wordsArray,4)}개, 페이퍼타올 ${getArrayValue(wordsArray,5)}개
 
-            6층 롤휴지 ${getArrayValue(wordsArray,5)}개, 페이퍼타올 ${getArrayValue(wordsArray,6)}개`;
+            6층 롤휴지 ${getArrayValue(wordsArray,6)}개, 페이퍼타올 ${getArrayValue(wordsArray,7)}개`;
         }
 
 
