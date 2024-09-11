@@ -6,8 +6,80 @@
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./reset.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <main>
+        <!-- Header 영역 -->
+        <div class="headerWrap">
+            <!-- Left Menu 영역 -->
+            <div class="leftMenuWrap">
+                <input type='radio' name='contentName' id="checkToilet" checked/>
+                <label for="checkToilet">화장실 점검</label>
+
+                <input type='radio' name='contentName' id="attendanceStatus"/>
+                <label for="attendanceStatus">출결 현황</label>
+
+                <input type='radio' name='contentName' id="checkSupplies"/>
+                <label for="checkSupplies">비품 점검</label>
+
+                <input type='radio' name='contentName' id="closing"/>
+                <label for="closing">마감</label>
+            </div>
+
+            <!-- Right Menu 영역 -->
+            <div class="rightMenuWrap">
+                <a id="jandiButton" href="jandi://">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </a>
+                <button type="button" id="copyButton">
+                    <img src="./assets/copy.svg" alt="Copy">
+                </button>
+            </div>
+        </div>
+
+        <!-- 시간 선택 및 층 선택 영역 -->
+        <div class="textManageWrap">
+            <div class="textTime">
+                <input type='radio' name='contentTime' id="21" checked/>
+                <label for="21">21:00</label>
+
+                <input type='radio' name='contentTime' id="22"/>
+                <label for="22">22:00</label>
+
+                <input type='radio' name='contentTime' id="23"/>
+                <label for="23">23:00</label>
+
+                <input type='radio' name='contentTime' id="2330"/>
+                <label for="2330">23:30</label>
+            </div>
+
+            <div class="textStairs">
+                <input type='radio' name='contentStair' id="2" checked/>
+                <label for="2">2</label>
+
+                <input type='radio' name='contentStair' id="3"/>
+                <label for="3">3</label>
+
+                <input type='radio' name='contentStair' id="4"/>
+                <label for="4">4</label>
+
+                <input type='radio' name='contentStair' id="5"/>
+                <label for="5">5</label>
+
+                <input type='radio' name='contentStair' id="6"/>
+                <label for="6">6</label>
+            </div>
+
+            <input type="text" id="contentDetail" placeholder="상세 내용을 입력하세요" >
+        </div>
+
+        <!-- 복사할 텍스트 영역 -->
+        <div class="textForCopyWrap">
+            <div class="textForCopy" id="textForCopy">
+                <!-- 여기에 자동으로 내용이 생성됩니다. -->
+            </div>
+        </div>
+    </main>
 </body>
 </html>
