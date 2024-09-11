@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const inputs = document.querySelectorAll('input[type="text"]');
+    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
 
         inputs.forEach((input, index) => {
             input.addEventListener('keydown', function(event) {
