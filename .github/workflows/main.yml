@@ -1,4 +1,4 @@
-name: Upload to S3
+name: Upload to S3 and Invalidate CloudFront Cache
 
 on:
   push:
@@ -30,3 +30,9 @@ jobs:
     - name: Upload files to S3
       run: |
         aws s3 sync . s3://sidaenightjogyo --exclude ".git/*" --delete
+
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id YOUR_DISTRIBUTION_ID \
+          --paths "/*"
