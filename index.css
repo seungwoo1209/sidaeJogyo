@@ -120,8 +120,34 @@ main .textManageWrap input {
   box-sizing: border-box;
 }
 main .textForCopyWrap div {
+  padding: 10px;
   border: 1px solid black;
-  min-height: 250px;
+  border-bottom: none;
+  min-height: 66px;
+}
+main .textForCopyWrap div:last-child {
+  border-bottom: 1px solid black;
+}
+main .textForCopyWrap input[type=text] {
+  width: 25px;
+}
+main .textForCopyWrap input[type=number] {
+  width: 15px;
+}
+main .textForCopyWrap .textCopyContent {
+  position: relative;
+}
+main .textForCopyWrap .textCopyContent .copyAndLink {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 100%;
+}
+main .textForCopyWrap .textCopyContent .copyAndLink img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -13,34 +13,8 @@
 </head>
 <body>
     <main>
-        <form id="myForm">
-            <input type="text" id="input1" placeholder="첫 번째 입력" /><br>
-            <input type="text" id="input2" placeholder="두 번째 입력" /><br>
-            <input type="text" id="input3" placeholder="세 번째 입력" /><br>
-            <button type="submit">Submit</button>
-        </form>
         <!-- Header 영역 -->
         <div class="headerWrap">
-            <!-- Left Menu 영역 -->
-            <div class="leftMenuWrap">
-                <input type='radio' name='contentName' id="checkToilet" checked/>
-                <label for="checkToilet">화장실 점검</label>
-
-                <input type='radio' name='contentName' id="attendanceStatus"/>
-                <label for="attendanceStatus">출결 현황</label>
-
-                <input type='radio' name='contentName' id="checkSupplies"/>
-                <label for="checkSupplies">비품 점검</label>
-
-                <div class="fixedmenus">
-                    <input type='radio' name='contentName' id="closing"/>
-                    <label for="closing">마감</label>
-
-                    <input type='radio' name='contentName' id="seated"/>
-                    <label for="seated">착석</label>
-                </div>
-            </div>
-
             <!-- Right Menu 영역 -->
             <div class="rightMenuWrap">
                 <a id="jandiButton" href="tosslabjandi://">
@@ -54,23 +28,6 @@
 
         <!-- 시간 선택 및 층 선택 영역 -->
         <div class="textManageWrap">
-            <div class="textTime">
-                <input type='radio' name='contentTime' id="20" checked/>
-                <label for="20">20:00</label>
-
-                <input type='radio' name='contentTime' id="21"/>
-                <label for="21">21:00</label>
-
-                <input type='radio' name='contentTime' id="22"/>
-                <label for="22">22:00</label>
-
-                <input type='radio' name='contentTime' id="23"/>
-                <label for="23">23:00</label>
-
-                <input type='radio' name='contentTime' id="2330"/>
-                <label for="2330">23:30</label>
-            </div>
-
             <div class="textStairs">
                 <input type='radio' name='contentStair' id="2" checked/>
                 <label for="2">2</label>
@@ -87,27 +44,138 @@
                 <input type='radio' name='contentStair' id="6"/>
                 <label for="6">6</label>
             </div>
-
-            <input type="text" id="contentDetail" placeholder="콤마(,)기준으로 구별" >
         </div>
 
         <!-- 복사할 텍스트 영역 -->
         <div class="textForCopyWrap">
-            <div class="textForCopy" id="textForCopy">
-                
+            <div class="textCopyContent">
+                H관 20:00 2-3층 <input type="text">화장실 점검 완료 및<br><br>
+
+                <span class="contentStairSpan"></span>층 환경점검 완료했습니다.<br><br>
+
+                2층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
+
+                3층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
+
+                및 물비누 채웠습니다<br><br>
+
+                그 외 특이사항 없습니다
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
             </div>
-            <div>
-                H관 20:00 <input type="number">-<input type="number">층 <input type="text">화장실 점검 완료 및<br><br>
+            <div class="textCopyContent">
+                H관 20:00 4-6층 <input type="text">화장실 점검 완료 및<br><br>
 
-2층 환경점검 완료했습니다.<br><br>
+<span class="contentStairSpan"></span>층 환경점검 완료했습니다.<br><br>
 
-2층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
+                4층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
 
-3층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
+                5층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
 
-및 물비누 채웠습니다<br><br>
+                6층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
 
-그 외 특이사항 없습니다
+                및 물비누 채웠습니다<br><br>
+
+                그 외 특이사항 없습니다
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                <input type="text" style="width: 35px"> 조교 H관 <span class="contentStairSpan"></span>층 착석 완료
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                H관 <span class="contentStairSpan"></span>층 <br> 
+                <23:00출결> <br><br>
+
+                카드미태깅:<input type="number"><br><br>
+
+                IN인데 자리에 없음:<input type="number"> <br><br>
+
+                OUT인데 자리에 있음:<input type="number"> <br><br>
+
+                핸드폰 미제출:<input type="number"> <br><br>
+
+                핸드폰 ON:<input type="number"> <br><br>
+
+                수면:<input type="number"> <br><br>
+
+                라이브러리 온도 <input type="number">
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                H관 23:30 2-3층 <input type="text">화장실 점검 완료 및<br><br>
+
+                <span class="contentStairSpan"></span>층 환경점검 완료했습니다.<br><br>
+
+                2층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
+
+                3층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
+
+                및 물비누 채웠습니다<br><br>
+
+                그 외 특이사항 없습니다
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                H관 23:30 4-6층 <input type="text">화장실 점검 완료 및<br><br>
+
+                <span class="contentStairSpan"></span>층 환경점검 완료했습니다.<br><br>
+
+                4층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
+
+                5층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br>
+
+                6층 롤휴지 <input type="number">개, 페이퍼타올 <input type="number">개<br><br>
+
+                및 물비누 채웠습니다<br><br>
+
+                그 외 특이사항 없습니다
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                H관 <span class="contentStairSpan"></span>층 전원 하원 후 라이브러리 마감했습니다.
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                H관 가드 교대했습니다.
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
+            </div>
+            <div class="textCopyContent">
+                &lt;H관 8/23 (금) 비품현황&gt; <br><br>
+
+                점보롤 : <input type="number">박스 <br><br>
+
+                페이퍼타올 : <input type="number">박스 <br><br>
+
+                물티슈 : <input type="number">박스 <br><br>
+
+                종이컵: <input type="number">박스 <br><br>
+
+                큰종이컵 : <input type="number">박스 <br><br>
+
+                두모금컵 : <input type="number">박스 <br><br>
+
+                물비누 : <input type="number">통 <br><br>
+
+                <input type="text" placeholder="특이사항?" style="width:80%">
+                <button type="button" class="copyAndLink">
+                    <img src="./assets/jandi.png" alt="Jandi">
+                </button>
             </div>
         </div>
 
