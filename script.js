@@ -17,18 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const contentStairRadios = document.getElementsByName('contentStair');
 
 
-    // 'Copy' 버튼 클릭 이벤트
-    document.getElementById('copyButton').addEventListener('click', function () {
-        const contentToCopy = textForCopy.innerText;
-        navigator.clipboard.writeText(contentToCopy)
-            .then(() => {
-                
-            })
-            .catch((err) => {
-                console.error('복사 실패: ', err);
-            });
-    });
-
     // 라디오 버튼이 선택될 때마다 텍스트 갱신
     function updateTextForCopy() {
         let selectedContentStair = '';
@@ -54,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
         tempTextArea.select();
         document.execCommand('copy');
         document.body.removeChild(tempTextArea);
-        alert('복사되었습니다!');
+        console.log("복사 완료");
     }
 
     // 모든 copyAndLink 버튼에 대해 이벤트 리스너 추가
-    document.querySelectorAll('.copyAndLink').forEach(button => {
+    document.querySelectorAll('.copyAndLink').forEach((button, idx) => {
         button.addEventListener('click', function () {
             // 버튼의 부모 요소(textCopyContent)를 찾음
             const parentDiv = button.closest('.textCopyContent');
@@ -67,18 +55,38 @@ document.addEventListener('DOMContentLoaded', function () {
             let content = '';
 
             // 부모 div 내의 자식 노드를 순회하면서 텍스트와 입력값을 결합
-            parentDiv.childNodes.forEach(node => {
+            parentDiv.childNodes.forEach((node,index) => {
                 if (node.tagName === 'INPUT') {
                     // input 필드의 value 값을 가져옴
                     content += node.value;
+                    console.log(idx);
+                    if(idx == 3){
+                        if(node.value == ''){
+                            console.log("ㅋ");
+                            content += 'X';
+                        }
+                    }
+                } else if (node.tagName === 'BR') {
+                    // br 태그가 있을 경우 줄바꿈 추가
+                    content += '\n';
                 } else if (node.tagName !== 'BUTTON' && node.tagName !== 'IMG') {
                     // 텍스트 노드의 경우 텍스트만 추가 (버튼과 이미지는 제외)
-                    content += node.textContent || node.innerText;
+                    content += node.textContent.trim();  // 불필요한 공백 제거
+
+                    // 텍스트 노드 뒤에 input 태그가 올 경우 공백 추가 (기존 텍스트에 공백이 있으면 유지)
+                    const nextNode = parentDiv.childNodes[index + 1];
+                    if (nextNode && (nextNode.tagName === 'INPUT' || nextNode.tagName === 'SPAN') && node.textContent.endsWith(` `)) {
+                        content += ' ';
+                    }
                 }
             });
 
             // 복사하는 함수 호출
-            copyContentToClipboard(content.trim());
+            copyContentToClipboard(content);
+
+            // 데이터 속성에 설정된 URL로 이동
+            window.location.href = "tosslabjandi://";  // 페이지 이동
+            
         });
     });
 

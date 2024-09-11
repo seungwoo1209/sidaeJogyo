@@ -11,6 +11,16 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 label, button {
   background: inherit;
   border: none;
@@ -51,7 +61,8 @@ label {
 
 main {
   width: calc(100% - 40px);
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+  height: 2000px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -94,6 +105,11 @@ main .headerWrap .rightMenuWrap img {
   display: block;
 }
 main .textManageWrap {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  background-color: white;
+  padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid black;
   display: flex;
@@ -148,6 +164,9 @@ main .textForCopyWrap .textCopyContent .copyAndLink img {
   height: 40px;
   border-radius: 100%;
   display: block;
+}
+main .textForCopyWrap div:nth-child(4) input {
+  width: 30px;
 }
 
 /*# sourceMappingURL=index.css.map */
