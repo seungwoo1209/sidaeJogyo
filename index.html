@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./reset.css">
     <script src="script.js" defer></script>
@@ -23,8 +26,13 @@
                 <input type='radio' name='contentName' id="checkSupplies"/>
                 <label for="checkSupplies">비품 점검</label>
 
-                <input type='radio' name='contentName' id="closing"/>
-                <label for="closing">마감</label>
+                <div class="fixedmenus">
+                    <input type='radio' name='contentName' id="closing"/>
+                    <label for="closing">마감</label>
+
+                    <input type='radio' name='contentName' id="seated"/>
+                    <label for="seated">착석</label>
+                </div>
             </div>
 
             <!-- Right Menu 영역 -->
@@ -41,7 +49,10 @@
         <!-- 시간 선택 및 층 선택 영역 -->
         <div class="textManageWrap">
             <div class="textTime">
-                <input type='radio' name='contentTime' id="21" checked/>
+                <input type='radio' name='contentTime' id="20" checked/>
+                <label for="20">20:00</label>
+
+                <input type='radio' name='contentTime' id="21"/>
                 <label for="21">21:00</label>
 
                 <input type='radio' name='contentTime' id="22"/>

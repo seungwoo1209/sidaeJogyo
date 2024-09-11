@@ -8,6 +8,7 @@
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 label, button {
@@ -64,6 +65,16 @@ main .headerWrap .leftMenuWrap label {
   height: 40px;
   line-height: 40px;
 }
+main .headerWrap .leftMenuWrap .fixedmenus {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+main .headerWrap .leftMenuWrap .fixedmenus label {
+  height: 40px;
+  line-height: 40px;
+  flex-grow: 1;
+}
 main .headerWrap .rightMenuWrap {
   display: flex;
   flex-direction: column;
@@ -91,6 +102,8 @@ main .textManageWrap div {
   gap: 5px;
 }
 main .textManageWrap div label {
+  height: 30px;
+  line-height: 30px;
   flex-grow: 1;
   border-radius: 2px;
 }

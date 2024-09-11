@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
             case "마감":
                 finalText = closing(selectedContentStair);
                 break;
+            case "착석":
+                finalText = seated(selectedContentStair);
             default:
 
         }
@@ -77,26 +79,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkToilet = (selectedContentTime, selectedContentStair) => {
         let toiletCheckingStair="";
         let mainDescription = "";
-        const wordsArray = contentDetail.value.split(' '); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
+        const wordsArray = contentDetail.value.split(','); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
 
         if(selectedContentStair == 2 || selectedContentStair == 3){
             toiletCheckingStair = "2-3";
             mainDescription = 
-            `2층 롤휴지 ${wordsArray[0]}개, 페이퍼타올 ${wordsArray[1]}개
+            `2층 롤휴지 ${getArrayValue(wordsArray,1)}개, 페이퍼타올 ${getArrayValue(wordsArray,2)}개
 
-            3층 롤휴지 ${wordsArray[2]}개, 페이퍼타올 ${wordsArray[3]}개`;
+            3층 롤휴지 ${getArrayValue(wordsArray,3)}개, 페이퍼타올 ${getArrayValue(wordsArray,4)}개`;
         } else {
             toiletCheckingStair = "4-6";
             mainDescription = 
-            `4층 롤휴지 ${wordsArray[0]}개, 페이퍼타올 ${wordsArray[1]}개
+            `4층 롤휴지 ${getArrayValue(wordsArray,1)}개, 페이퍼타올 ${getArrayValue(wordsArray,2)}개
 
-            5층 롤휴지 ${wordsArray[2]}개, 페이퍼타올 ${wordsArray[3]}개
+            5층 롤휴지 ${getArrayValue(wordsArray,3)}개, 페이퍼타올 ${getArrayValue(wordsArray,4)}개
 
-            6층 롤휴지 ${wordsArray[4]}개, 페이퍼타올 ${wordsArray[5]}개`;
+            6층 롤휴지 ${getArrayValue(wordsArray,5)}개, 페이퍼타올 ${getArrayValue(wordsArray,6)}개`;
         }
 
 
-        return `H관 ${selectedContentTime} ${toiletCheckingStair}층 남자화장실 점검 완료 및
+        return `H관 ${selectedContentTime} ${toiletCheckingStair}층 ${getArrayValue(wordsArray,0)}화장실 점검 완료 및
 
         ${selectedContentStair}층 환경점검 완료했습니다.
 
@@ -109,25 +111,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const attendanceStatus = (selectedContentTime, selectedContentStair) => {
-        const wordsArray = contentDetail.value.split(' '); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
+        const wordsArray = contentDetail.value.split(','); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
 
         return `H관 ${selectedContentStair}층
 
         <${selectedContentTime}출결>
 
-        카드미태깅:${wordsArray[0]}
+        카드미태깅:${getArrayValue(wordsArray,0)}
 
-        IN인데 자리에 없음:${wordsArray[1]}
+        IN인데 자리에 없음:${getArrayValue(wordsArray,1)}
 
-        OUT인데 자리에 있음:${wordsArray[2]}
+        OUT인데 자리에 있음:${getArrayValue(wordsArray,2)}
 
-        핸드폰 미제출:${wordsArray[3]}
+        핸드폰 미제출:${getArrayValue(wordsArray,3)}
 
-        핸드폰 ON:${wordsArray[4]}
+        핸드폰 ON:${getArrayValue(wordsArray,4)}
 
-        수면:${wordsArray[5]}
+        수면:${getArrayValue(wordsArray,5)}
 
-        라이브러리 온도 ${wordsArray[6]}
+        라이브러리 온도 ${getArrayValue(wordsArray,6)}
         `;
     }
 
@@ -136,23 +138,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const days = ['일', '월', '화', '수', '목', '금', '토'];
         const dayOfWeek = days[date.getDay()]; // 요일
 
-        const wordsArray = contentDetail.value.split(' '); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
+        const wordsArray = contentDetail.value.split(','); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
 
         return `<H관 ${date.getMonth() + 1}/${date.getDate()} (${dayOfWeek}) 비품현황>
 
-        점보롤 : ${wordsArray[0]}박스
+        점보롤 : ${getArrayValue(wordsArray,0)}박스
 
-        페이퍼타올 : ${wordsArray[1]}박스
+        페이퍼타올 : ${getArrayValue(wordsArray,1)}박스
 
-        물티슈 : ${wordsArray[2]}박스
+        물티슈 : ${getArrayValue(wordsArray,2)}박스
 
-        종이컵: ${wordsArray[3]}박스
+        종이컵: ${getArrayValue(wordsArray,3)}박스
 
-        큰종이컵 : ${wordsArray[4]}박스
+        큰종이컵 : ${getArrayValue(wordsArray,4)}박스
 
-        두모금컵 : ${wordsArray[5]}박스
+        두모금컵 : ${getArrayValue(wordsArray,5)}박스
 
-        물비누 : ${wordsArray[6]}통
+        물비누 : ${getArrayValue(wordsArray,6)}통
         `
     }
 
@@ -162,6 +164,20 @@ document.addEventListener('DOMContentLoaded', function () {
             stairString = "5, 6"
         }
         return `H관 ${stairString}층 전원 하원 후 라이브러리 마감했습니다.`
+    }
+
+    const seated = (selectedContentStair) => {
+        const wordsArray = contentDetail.value.split(','); // 공백을 기준으로 문자열을 분리하여 배열로 만듦
+
+        return `${getArrayValue(wordsArray,0)} 조교 H관 ${selectedContentStair}층 착석 완료`;
+    }
+
+    const getArrayValue = (arr, index) => {
+        if(arr[index] != undefined && arr[index] != ""){
+            return arr[index];
+        } else {
+            return `(  ?  )`;
+        }
     }
 
     // 라디오 버튼과 텍스트 입력에 이벤트 리스너 추가
