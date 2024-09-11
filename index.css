@@ -33,6 +33,14 @@ label, button {
   border: 1px solid black !important;
 }
 
+#copyButton {
+  transition: background-color 0.5s ease;
+}
+
+#copyButton:active {
+  background-color: darkgray;
+}
+
 input[type=radio] {
   display: none;
 }

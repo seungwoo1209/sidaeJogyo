@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const inputs = document.querySelectorAll('input[type="text"]');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // 기본 Enter 동작 막기
+                    const nextInput = inputs[index + 1]; // 다음 input 필드 찾기
+                    if (nextInput) {
+                        nextInput.focus(); // 다음 input으로 포커스 이동
+                    }
+                }
+            });
+        });
+
     // 각 라디오 버튼 그룹 선택
     const contentNameRadios = document.getElementsByName('contentName');
     const contentTimeRadios = document.getElementsByName('contentTime');
@@ -17,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const contentToCopy = textForCopy.innerText;
         navigator.clipboard.writeText(contentToCopy)
             .then(() => {
-                alert('내용이 복사되었습니다.');
+                
             })
             .catch((err) => {
                 console.error('복사 실패: ', err);
